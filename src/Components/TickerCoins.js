@@ -1,40 +1,31 @@
+import { useState } from "react";
 import "../App.css";
-
+import tickCoins from "./TickerData";
 const TickerCoins = () => {
-  const tickerCoins = [
-    {
-      name: "WTF-USD",
-      price: 1.11,
-    },
-    {
-      name: "VUE-RUB",
-      price: 80000.0,
-    },
-    {
-      name: "BTC - USD",
-      price: 99999.99,
-    },
-    {
-      name: "DOGE - USD",
-      price: 0.0014,
-    },
-  ];
+  const [coins, setCoins] = useState(tickCoins);
+  const handleDelete = (id) => {
+    const newCoins = coins.filter((coin) => coin.id !== id);
+    setCoins(newCoins);
+  };
   return (
     <>
       <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
-        {tickerCoins.map((coinTick) => {
+        {coins.map((coin) => {
           return (
             <>
               <div className="bg-white overflow-hidden shadow rounded-lg border-purple-800 border-solid cursor-pointer">
                 <div className="px-4 py-5 sm:p-6 text-center">
                   <dt className="text-sm font-medium text-gray-500 truncate">
-                    {coinTick.name}
+                    {coin.name}
                   </dt>
                   <dd className="mt-1 text-3xl font-semibold text-gray-900">
-                    {coinTick.price}
+                    {coin.price}
                   </dd>
                   <div className="w-full border-t border-gray-200"></div>
-                  <button className="flex items-center justify-center font-medium w-full bg-gray-100 px-4 py-4 sm:px-6 text-md text-gray-500 hover:text-gray-600 hover:bg-gray-200 hover:opacity-20 transition-all focus:outline-none">
+                  <button
+                    className="flex items-center justify-center font-medium w-full bg-gray-100 px-4 py-4 sm:px-6 text-md text-gray-500 hover:text-gray-600 hover:bg-gray-200 hover:opacity-20 transition-all focus:outline-none"
+                    onClick={() => handleDelete(coin.id)}
+                  >
                     <svg
                       className="h-5 w-5"
                       xmlns="http://www.w3.org/2000/svg"
