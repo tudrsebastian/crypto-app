@@ -1,7 +1,6 @@
-import "../App.css";
+import tickCoins from "./constants/TickerData";
 
 const Add = () => {
-  let coins = ["BTC", "DOGE", "BCH", "CHD"];
   return (
     <section>
       <div className="flex">
@@ -21,10 +20,13 @@ const Add = () => {
               placeholder="For example DOGE"
             />
           </div>
-          {coins.map((coin) => {
+          {tickCoins.map((coin) => {
             return (
-              <span className="inline-flex items-center px-2 m-1 rounded-md text-xs font-medium bg-gray-300 text-gray-800 cursor-pointer">
-                {coin}
+              <span
+                key={coin.id}
+                className="inline-flex items-center px-2 m-1 rounded-md text-xs font-medium bg-gray-300 text-gray-800 cursor-pointer"
+              >
+                {coin.name}
               </span>
             );
           })}

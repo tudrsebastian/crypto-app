@@ -1,8 +1,14 @@
-import "./App.css";
+import { useState } from "react";
 import Loading from "./Components/Loading";
 import Add from "./Components/AddCoins";
 import TickerCoins from "./Components/TickerCoins";
+import tickCoins from "./Components/constants/TickerData";
 function App() {
+  const [coins, setCoins] = useState(tickCoins);
+  const handleDelete = (id) => {
+    const newCoins = coins.filter((coin) => coin.id !== id);
+    setCoins(newCoins);
+  };
   return (
     <div className="App">
       <div className="container mx-auto flex flex-col items-center bg-gray-100 p-4">
@@ -10,7 +16,7 @@ function App() {
         <div className="container">
           <Add />
           <hr className="w-full border-t border-gray-600 my-4" />
-          <TickerCoins />
+          <TickerCoins handleDelete={handleDelete} coins={coins} />
 
           <hr className="w-full border-t border-gray-600 my-4" />
           <section className="relative">

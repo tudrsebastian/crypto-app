@@ -1,4 +1,4 @@
-import "../App.css";
+
 
 const Loading = () => {
   let loading = false;
