@@ -9,6 +9,7 @@ const fetchAllCoinsList = async () => {
       data: { Data },
     } = await axios.get(ALL_COINS_URL);
 
+    console.log(Data);
     return Data;
   } catch (error) {
     console.log(error);

@@ -30,7 +30,7 @@ const Home = (props)=>{
   const allCoinsList = useAllCoinsList(props.coinID)
   const [loading,setLoading] = useState(false)
     const [tickers, setTickers] = useState(mockedCoins);
-   
+  
     const handleAddTicker = (ticker)=>{
         const newTicker={
             name:ticker,
@@ -40,7 +40,7 @@ const Home = (props)=>{
 
       }
 
-      function Userlog (){}
+
 
      
       const removeTicker = (id)=>{
