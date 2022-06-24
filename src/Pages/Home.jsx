@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Loading,Ticker } from "../components";
-import {useAllCoinsList} from '../hooks/useAllCoinsList';
+import { useAllCoinsList } from '../hooks/useAllCoinsList';
 const mockedCoins = [
     {
         id:'214523543',
